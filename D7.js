@@ -2,108 +2,79 @@
   Scrivi una funzione per concatenare due stringhe ricevute come parametri, selezionando solamente i primi 2 caratteri della
   prima e gli ultimi 3 della seconda. Converti la stringa risultante in maiuscolo e mostrala con un console.log().
 */
-const concatStr = function (str1, str2) {
-  const firstString = str1.slice(0, 2);
-  const lastString = str2.slice(-3);
-  const string = firstString + lastString;
-  const finalString = string.toUpperCase();
-  console.log(finalString);
-};
+// const concatStr = function (str1, str2) {
+//   const firstString = str1.slice(0, 2);
+//   const lastString = str2.slice(-3);
+//   const string = firstString + lastString;
+//   const finalString = string.toUpperCase();
+// };
+// console.log(finalString);
 
 /* ESERCIZIO 2 (for)
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
 */
-const randomArray = function () {
-  const myArray = [];
-  for (i = 0; i < 10; i++) {
-    const casualValue = Math.floor(Math.random() * 101);
-    myArray.push(casualValue);
-  }
-};
-randomArray();
-
 /* ESERCIZIO 3 (filter)
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
-const filterEvenValues = function (arrayOfNumbers) {
-  const arrayOfJustEvenvalues = arrayOfNumbers.filetr((num) => {
-    return num % 2 === 0;
-  });
-  console.log(arrayOfJustEvenvalues);
-};
 
-filterEvenValues([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+const arrayOfNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const arrayOfJustEvenValues = arrayOfNumbers.filter((num) => {
+  return num % 2 === 0;
+});
+console.log(arrayOfJustEvenValues);
 
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
-const sum = function (arrayNumerico) {
+const sommaNumeri = (numeri) => {
   let somma = 0;
 
-  arrayNumerico.forEach((numero) => {
-    somma += numero;
+  arrayOfNumbers.forEach((element) => {
+    somma += element;
+    return somma;
   });
-
-  return somma;
 };
+console.log(sommaNumeri([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
 
-const sumArray = function (arrayNumerico) {
-  const somma = arrayNumerico.reduce((acc, numero) => acc + numero, 0);
-
-  return somma;
-};
-
-const arrayNumerico = [1, 2, 3, 4, 5];
-const risultatoSommaConForEach = sommaArrayConForEach(arrayNumerico);
-console.log(risultatoSommaConForEach);
+const sum = arrayOfNumbers.reduce((acc, current) => {
+  return acc + current;
+}, 0);
+console.log(sum);
 
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
-
-const incrementArray = function (arrayNum, n) {
-  const arrayIncrementato = arrayNumerico.map((numero) => numero + n);
-  return arrayIncrementato;
-};
-
-const arrayOfNum = [1, 2, 3, 4, 5];
-const n = 10;
-const arrayIncrementato = incrementArray(arrayOfNum, n);
-console.log(arrayIncrementato);
+const arrayDiValoriIncrementati = arrayOfNumbers.map((numeri, n) => {
+  return (numeri += n);
+});
+console.log(arrayDiValoriIncrementati);
 
 /* ESERCIZIO 7 (map)
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
-
-function strLenght(arrayDiStringhe) {
-  // Utilizza il metodo map per creare un nuovo array con le lunghezze delle stringhe
-  const lunghezze = arrayDiStringhe.map((stringa) => stringa.length);
-
-  return lunghezze;
-}
-
-// Esempio di utilizzo della funzione
-const arrayDiStringhe = ["EPICODE", "is", "great"];
-const lunghezzeArray = strLength(arrayDiStringhe);
-console.log(lunghezzeArray);
+const firstArray = ["EPICODE", "is", "great"];
+const secondArray = firstArray.map((words) => {
+  return firstArray.length === words.length;
+});
+console.log(secondArray);
 
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
-function newArrayi() {
-  const unevenArray = [];
-
-  for (let i = 1; i <= 99; i += 2) {
-    unEven.push(i);
-  }
-
-  return unevenArray;
-}
+const arrayValoriDispari = () => {
+  const newArray = arrayValoriDispari.forEach((numdispari) => {
+    if (numdispari > 0 && numdispari < 100 && numdispari % 2 !== 0) {
+      return newArray;
+    }
+  });
+};
+console.log(arrayValoriDispari());
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
